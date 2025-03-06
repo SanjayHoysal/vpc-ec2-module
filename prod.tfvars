@@ -1,0 +1,6 @@
+region            = "us-east-1"
+cidr_block        = "10.0.2.0/16"
+name              = "prod"
+ami               = "ami-04b4f1a9cf54c11d0"
+instance_type     = "t2.micro"
+availability_zone = "us-east-1a"
