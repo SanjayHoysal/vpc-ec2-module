@@ -10,6 +10,16 @@ resource "aws_vpc" "main" {
   }
 }
 
+resource "aws_subnet" "main" {
+  vpc_id            = aws_vpc.main.id
+  cidr_block        = cidrsubnet(var.cidr_block, 8, 1)  # Adjust the subnet size as needed
+  availability_zone = var.availability_zone
+
+  tags = {
+    Name = "${var.name}-subnet"
+  }
+}
+
 resource "aws_security_group" "allow_ssh_http" {
   vpc_id = aws_vpc.main.id
 
@@ -33,8 +43,9 @@ resource "aws_security_group" "allow_ssh_http" {
 }
 
 resource "aws_instance" "app" {
-  ami           = var.ami
-  instance_type = var.instance_type
+  ami                    = var.ami
+  instance_type          = var.instance_type
+  subnet_id              = aws_subnet.main.id
   vpc_security_group_ids = [aws_security_group.allow_ssh_http.id]
 
   tags = {
