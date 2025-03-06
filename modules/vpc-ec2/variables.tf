@@ -22,5 +22,5 @@ variable "instance_type" {
 
 variable "availability_zone" {
   description = "The availability zone to deploy the subnet"
-  default     = "us-east-1a"  # Change this to your desired availability zone
+  default     = "us-east-1a" 
 }
