@@ -19,3 +19,8 @@ variable "instance_type" {
   description = "The type of EC2 instance"
   default     = "t2.micro"
 }
+
+variable "availability_zone" {
+  description = "The availability zone to deploy the subnet"
+  default     = "us-east-1a"  # Change this to your desired availability zone
+}
