@@ -18,6 +18,6 @@ module "vpc_ec2" {
   name          = var.name
   ami           = var.ami
   instance_type = var.instance_type
-  availability_zone = var.availability_zone  # Pass the availability zone
+  availability_zone = var.availability_zone 
 }
 
